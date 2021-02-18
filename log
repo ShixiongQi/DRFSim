@@ -1,0 +1,183 @@
+remainingReourcePerNode[0].CPUCapacity = 25
+remainingReourcePerNode[0].MemCapacity = 10
+fairnessDataList[0].podCPUUsage = 5
+fairnessDataList[0].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 1.7000000000000002
+remainingReourcePerNode[1].CPUCapacity = 10
+remainingReourcePerNode[1].MemCapacity = 25
+fairnessDataList[0].podCPUUsage = 5
+fairnessDataList[0].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 1.46
+nodeScore[] = [1.7000000000000002 1.46]
+func-1 placed to node-1 (Score: 1.7000000000000002)
+
+remainingReourcePerNode[0].CPUCapacity = 20
+remainingReourcePerNode[0].MemCapacity = 9
+fairnessDataList[1].podCPUUsage = 1
+fairnessDataList[1].podMemUsage = 5
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 1.1600000000000001
+remainingReourcePerNode[1].CPUCapacity = 10
+remainingReourcePerNode[1].MemCapacity = 25
+fairnessDataList[1].podCPUUsage = 1
+fairnessDataList[1].podMemUsage = 5
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 1.7000000000000002
+nodeScore[] = [1.1600000000000001 1.7000000000000002]
+func-2 placed to node-2 (Score: 1.7000000000000002)
+
+remainingReourcePerNode[0].CPUCapacity = 20
+remainingReourcePerNode[0].MemCapacity = 9
+fairnessDataList[2].podCPUUsage = 5
+fairnessDataList[2].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 1.4
+remainingReourcePerNode[1].CPUCapacity = 9
+remainingReourcePerNode[1].MemCapacity = 20
+fairnessDataList[2].podCPUUsage = 5
+fairnessDataList[2].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 1.1600000000000001
+nodeScore[] = [1.4 1.1600000000000001]
+func-3 placed to node-1 (Score: 1.4)
+
+remainingReourcePerNode[0].CPUCapacity = 15
+remainingReourcePerNode[0].MemCapacity = 8
+fairnessDataList[3].podCPUUsage = 1
+fairnessDataList[3].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 1.26
+remainingReourcePerNode[1].CPUCapacity = 9
+remainingReourcePerNode[1].MemCapacity = 20
+fairnessDataList[3].podCPUUsage = 1
+fairnessDataList[3].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 1.56
+nodeScore[] = [1.26 1.56]
+func-4 placed to node-2 (Score: 1.56)
+
+remainingReourcePerNode[0].CPUCapacity = 15
+remainingReourcePerNode[0].MemCapacity = 8
+fairnessDataList[3].podCPUUsage = 1
+fairnessDataList[3].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 1.26
+remainingReourcePerNode[1].CPUCapacity = 8
+remainingReourcePerNode[1].MemCapacity = 19
+fairnessDataList[3].podCPUUsage = 1
+fairnessDataList[3].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 1.42
+nodeScore[] = [1.26 1.42]
+func-4 placed to node-2 (Score: 1.42)
+
+remainingReourcePerNode[0].CPUCapacity = 15
+remainingReourcePerNode[0].MemCapacity = 8
+fairnessDataList[0].podCPUUsage = 5
+fairnessDataList[0].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 1.1
+remainingReourcePerNode[1].CPUCapacity = 7
+remainingReourcePerNode[1].MemCapacity = 18
+fairnessDataList[0].podCPUUsage = 5
+fairnessDataList[0].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 0.8800000000000001
+nodeScore[] = [1.1 0.8800000000000001]
+func-1 placed to node-1 (Score: 1.1)
+
+remainingReourcePerNode[0].CPUCapacity = 10
+remainingReourcePerNode[0].MemCapacity = 7
+fairnessDataList[1].podCPUUsage = 1
+fairnessDataList[1].podMemUsage = 5
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 0.56
+remainingReourcePerNode[1].CPUCapacity = 7
+remainingReourcePerNode[1].MemCapacity = 18
+fairnessDataList[1].podCPUUsage = 1
+fairnessDataList[1].podMemUsage = 5
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 1.12
+nodeScore[] = [0.56 1.12]
+func-2 placed to node-2 (Score: 1.12)
+
+remainingReourcePerNode[0].CPUCapacity = 10
+remainingReourcePerNode[0].MemCapacity = 7
+fairnessDataList[2].podCPUUsage = 5
+fairnessDataList[2].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 0.8
+remainingReourcePerNode[1].CPUCapacity = 6
+remainingReourcePerNode[1].MemCapacity = 13
+fairnessDataList[2].podCPUUsage = 5
+fairnessDataList[2].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 0.58
+nodeScore[] = [0.8 0.58]
+func-3 placed to node-1 (Score: 0.8)
+
+remainingReourcePerNode[0].CPUCapacity = 5
+remainingReourcePerNode[0].MemCapacity = 6
+fairnessDataList[0].podCPUUsage = 5
+fairnessDataList[0].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 0.5
+remainingReourcePerNode[1].CPUCapacity = 6
+remainingReourcePerNode[1].MemCapacity = 13
+fairnessDataList[0].podCPUUsage = 5
+fairnessDataList[0].podMemUsage = 1
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 0.58
+nodeScore[] = [0.5 0.58]
+func-1 placed to node-2 (Score: 0.58)
+
+remainingReourcePerNode[0].CPUCapacity = 5
+remainingReourcePerNode[0].MemCapacity = 6
+fairnessDataList[1].podCPUUsage = 1
+fairnessDataList[1].podMemUsage = 5
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 0.26
+remainingReourcePerNode[1].CPUCapacity = 1
+remainingReourcePerNode[1].MemCapacity = 12
+fairnessDataList[1].podCPUUsage = 1
+fairnessDataList[1].podMemUsage = 5
+availableReourcePerNode[1].CPUCapacity = 10
+availableReourcePerNode[1].MemCapacity = 25
+nodeScore[1] = 0.28
+nodeScore[] = [0.26 0.28]
+func-2 placed to node-2 (Score: 0.28)
+
+remainingReourcePerNode[0].CPUCapacity = 5
+remainingReourcePerNode[0].MemCapacity = 6
+fairnessDataList[2].podCPUUsage = 5
+fairnessDataList[2].podMemUsage = 1
+availableReourcePerNode[0].CPUCapacity = 25
+availableReourcePerNode[0].MemCapacity = 10
+nodeScore[0] = 0.5
+nodeScore[] = [0.5 -1]
+func-3 placed to node-1 (Score: 0.5)
+
+nodeScore[] = [-1 -1]
+nodeScore[] = [-1 -1]
+nodeScore[] = [-1 -1]

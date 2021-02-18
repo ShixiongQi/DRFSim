@@ -58,8 +58,15 @@ func scoreWorstFit(fIndex int, fairnessDataList []FairnessData, availableReource
 	// fmt.Printf("In scoreWorstFit, remainingReourcePerNode = %v\n", remainingReourcePerNode)
 	for i, _ := range availableReourcePerNode {
 		if remainingReourcePerNode[i].CPUCapacity > 0 && remainingReourcePerNode[i].MemCapacity > 0 { 
+			// fmt.Printf("remainingReourcePerNode[%d].CPUCapacity = %v\n", i, remainingReourcePerNode[i].CPUCapacity)
+			// fmt.Printf("remainingReourcePerNode[%d].MemCapacity = %v\n", i, remainingReourcePerNode[i].MemCapacity)
+			// fmt.Printf("fairnessDataList[%d].podCPUUsage = %v\n", fIndex, fairnessDataList[fIndex].podCPUUsage)
+			// fmt.Printf("fairnessDataList[%d].podMemUsage = %v\n", fIndex, fairnessDataList[fIndex].podMemUsage)
+			// fmt.Printf("availableReourcePerNode[%d].CPUCapacity = %v\n", i, availableReourcePerNode[i].CPUCapacity)
+			// fmt.Printf("availableReourcePerNode[%d].MemCapacity = %v\n", i, availableReourcePerNode[i].MemCapacity)
 			if remainingReourcePerNode[i].CPUCapacity >= fairnessDataList[fIndex].podCPUUsage && remainingReourcePerNode[i].MemCapacity >= fairnessDataList[fIndex].podMemUsage {
 				nodeScore[i] = (remainingReourcePerNode[i].CPUCapacity - fairnessDataList[fIndex].podCPUUsage) / float64(availableReourcePerNode[i].CPUCapacity) + (remainingReourcePerNode[i].MemCapacity - fairnessDataList[fIndex].podMemUsage) / float64(availableReourcePerNode[i].MemCapacity)
+				// fmt.Printf("nodeScore[%d] = %v\n", i, nodeScore[i])	
 			} else {
 				nodeScore[i] = -1
 			}
@@ -67,6 +74,7 @@ func scoreWorstFit(fIndex int, fairnessDataList []FairnessData, availableReource
 			nodeScore[i] = -1
 		}
 	}
+	// fmt.Printf("nodeScore = %v\n", nodeScore)
 	return MaxFloatSlice(nodeScore)
 }
 
@@ -113,7 +121,12 @@ func maxMinCalculation(fairnessDataList []FairnessData, clusterCPUAvailable floa
 }
 
 func fairnessPlacement(fairnessDataList []FairnessData, availableReourcePerNode []ResourceCapacity, clusterCPU float64, clusterMem float64) ([]FairnessData) {
-	remainingReourcePerNode := availableReourcePerNode
+	// remainingReourcePerNode := availableReourcePerNode
+	remainingReourcePerNode := make([]ResourceCapacity, len(availableReourcePerNode))
+	for i, _ := range availableReourcePerNode { // set the desiredCPU, desiredMem, and remainingPodCount
+		remainingReourcePerNode[i].CPUCapacity = availableReourcePerNode[i].CPUCapacity
+		remainingReourcePerNode[i].MemCapacity = availableReourcePerNode[i].MemCapacity
+	}
 	for i, _ := range fairnessDataList { // set the desiredCPU, desiredMem, and remainingPodCount
 		fairnessDataList[i].desiredCPU = fairnessDataList[i].podCPUUsage * float64(fairnessDataList[i].desiredPodCountSLO)
 		fairnessDataList[i].desiredMem = fairnessDataList[i].podMemUsage * float64(fairnessDataList[i].desiredPodCountSLO)
@@ -151,6 +164,7 @@ func fairnessPlacement(fairnessDataList []FairnessData, availableReourcePerNode 
 		}
 		remainingReourcePerNode[nodeIndex].CPUCapacity -= fairnessDataList[funcIndex].podCPUUsage
 		remainingReourcePerNode[nodeIndex].MemCapacity -= fairnessDataList[funcIndex].podMemUsage
+		fmt.Printf("func-%d placed to node-%d (Score: %v)\n", funcIndex + 1, nodeIndex + 1, nodeScore)
 	}
 	for i, _ := range fairnessDataList { // set the desiredPodCountFair
 		fairnessDataList[i].desiredPodCountFair = int32(math.Ceil(fairnessDataList[i].allocatedCPUFair / fairnessDataList[i].podCPUUsage))
@@ -186,10 +200,10 @@ func main() {
 	fairnessData_2 := FairnessData{ // Func-2
 		desiredPodCountSLO: 5, // int32
 		// desiredPodCountFair: 0, // int32
-		podCPUUsage: 3.0, // float64 // resource usage per pod
+		podCPUUsage: 1.0, // float64 // resource usage per pod
 		// desiredCPU: 0.0, // float64 // desired resource of this function
 		allocatedCPUFair: 0.0, // float64 // fairly allocated resource of this function
-		podMemUsage: 2.0, // float64
+		podMemUsage: 5.0, // float64
 		// desiredMem: 0.0, // float64
 		allocatedMemFair: 0.0, // float64
 		// placementDecision []int
@@ -210,7 +224,7 @@ func main() {
 	fairnessData_4 := FairnessData{ // Func-4
 		desiredPodCountSLO: 2, // int32
 		// desiredPodCountFair: 0, // int32
-		podCPUUsage: 2.0, // float64 // resource usage per pod
+		podCPUUsage: 1.0, // float64 // resource usage per pod
 		// desiredCPU: 0.0, // float64 // desired resource of this function
 		allocatedCPUFair: 0.0, // float64 // fairly allocated resource of this function
 		podMemUsage: 1.0, // float64
@@ -225,7 +239,8 @@ func main() {
 	cpuShareList := [][]float64{cpuShare, cpuShare, cpuShare, cpuShare}
 	maxMinShare := make([]float64, 0)
 	maxMinShareList := [][]float64{maxMinShare, maxMinShare, maxMinShare, maxMinShare}
-	for clk := 0; clk < 30; clk++ {
+
+	clk := 6
 		fairnessDataList := make([]FairnessData, 0)
 		fairnessDataList_1 := make([]FairnessData, 0)
 		availableReourcePerNode := []ResourceCapacity{
@@ -266,13 +281,8 @@ func main() {
 		} else {
 			fairnessDataList_1 = []FairnessData{fairnessData_1, fairnessData_2, fairnessData_4}
 		}
+
 		output := fairnessPlacement(fairnessDataList, availableReourcePerNode, clusterCPUAvailable, clusterMemAvailable)
-		if clk > 11 && clk <= 13 {
-			fmt.Printf("* * * * * * * * * * * * * * * * clk = %v * * * * * * * * * * * * * * * * * * * * \n", clk)
-			fmt.Printf("output = %v\n\n", output)
-			fmt.Printf("availableReourcePerNode = %v\n\n", availableReourcePerNode)
-		}
-		// fmt.Printf("* * * * * * * * * * * * * * * * clk = %v * * * * * * * * * * * * * * * * * * * * \n", clk)
 		maxMinShareVal := maxMinCalculation(fairnessDataList_1, clusterCPUAvailable, clusterMemAvailable)
 
 		// Write results
@@ -337,8 +347,4 @@ func main() {
 			maxMinShareList[2] = append(maxMinShareList[2], 0)
 			maxMinShareList[3] = append(maxMinShareList[3], maxMinShareVal[2])
 		}
-		// fmt.Printf("availableReourcePerNode = %v\n", availableReourcePerNode)
-	}
-	fmt.Printf("cpuShareList = %v\n", cpuShareList)
-	fmt.Printf("maxMinShareList = %v\n", maxMinShareList)
 }
