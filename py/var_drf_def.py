@@ -119,7 +119,7 @@ def DRF_Var(func, availableReourcePerNode, clusterCPU, clusterMem, solverName):
                 MemShare = fairnessDataList[i]['allocatedMemFair'] / float(clusterMem)
                 domainShare[i] = max(CPUShare, MemShare)
             else:
-                domainShare[i] = math.inf
+                domainShare[i] = float('inf')
         # print("domainShare: ",domainShare)
         minDominantShareVal, _null = MinFloatSlice(domainShare) # Find the min dominant share value
         totalDemand = [0] * num
@@ -127,7 +127,7 @@ def DRF_Var(func, availableReourcePerNode, clusterCPU, clusterMem, solverName):
             if minDominantShareVal == domainShare[i]:
                 totalDemand[i] = fairnessDataList[i]['desiredCPU'] + fairnessDataList[i]['desiredMem']
             else:
-                totalDemand[i] = math.inf
+                totalDemand[i] = float('inf')
 
         _null, funcIndex = MinFloatSlice(totalDemand)
 
